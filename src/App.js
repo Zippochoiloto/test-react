@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Card from './componenents/card';
 
 function App() {
+  const listCard = [1,2,3]
+  const onClick = (event) => {
+    console.log('event', event)
+  }
+
+  const onEvent = (e) => {
+    console.log('e', e)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+      <button onClick={onClick}>Click me</button>
+      {listCard.map((el => <Card key={el} onEvent={onEvent}/>)) }
+      <Card onEvent={onEvent}/>
+      <Card onEvent={onEvent}/>
+      <Card onEvent={onEvent}/>
     </div>
   );
 }
+
+
 
 export default App;
